@@ -1,0 +1,156 @@
+@font-face {
+    font-family:apple-medium;
+    src: url(SFPRODISPLAYMEDIUM.OTF);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family:apple-medium;
+}
+.navbar{
+    background-color:#161617CC;
+    width:100%;
+    height:40px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+}
+.nav-items{
+    display:flex;
+    gap:20px;
+    list-style: none;
+    color: white;
+}
+.nav-items li a{
+     text-decoration: none;
+     color:white;
+}
+.reuse{
+    background-position: center;
+    background-size: cover;
+    height:100vh;
+}
+
+.hero-sec{
+    background-image: url(her-bg.jpg);
+    color:white;
+}
+.iPhone-Air{
+    background-image: url(iphone-bg.jpg);
+    color:black;
+    margin-top: 10px;
+}
+.iPhone-17 {
+    background-image: url(iphone17.jpg);
+    color:black;
+    margin-top: 10px;
+}
+.reuse-cont{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+.iPhone-17-cont{
+    height: 40vh;
+}
+.hero-cont h1{
+    font-size: 90px;
+}
+.hero-cont p{
+    font-size:40px; 
+}
+.iPhone-17-cont h2{
+    font-size: 90px;
+}
+.iPhone-17-cont p{
+    font-size:40px; 
+}
+.iPhone-Air-cont  h2{
+    font-size:90px;
+}
+.iPhone-Air-cont  p{
+    font-size:40px; 
+}
+
+.btn{
+    display: flex;
+    gap:20px;
+}
+.btn button{
+    background-color: #0071e3;
+    color: #fff;
+    border:none;
+    padding:10px 20px;
+    border-radius:13px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.btn button:hover{
+     background-color: #0071e3c0;
+}
+.nav-items a:hover{
+    font-weight: 900;
+}
+.first-row{
+    display:flex;
+}
+.first-row{
+    width:100%;
+}
+.watch{
+    background-image: url(watch.jpg);
+}
+.airpods{
+    background-image: url(earpods.jpg);
+}
+.macbook{
+    background-image: url(macbook.jpg);
+}
+.ipad{
+    background-image: url(ipad.jpg);
+}
+.tradein{
+    background-image: url(tradein.jpg);
+}
+.card{
+    background-image: url(card.jpg);
+}
+.grid{
+    background-position: center;
+    background-size: cover;
+    margin:10px;
+    width:50%;
+    height:100vh;
+}
+.grid-content{
+    height: 50vh;
+}
+.grid-content h2{
+    font-size:50px;
+}
+.grid-content p{
+    font-size: 25px;
+}
+footer{
+ background-color:#161617CC;
+    width:100%;
+    height:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    color:white;
+}
