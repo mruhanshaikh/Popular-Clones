@@ -1,26 +1,26 @@
-#  Apple Homepage Clone
+* Apple Homepage Clone
 
-A basic Apple homepage clone built to strengthen my understanding of layout structure using **Flexbox**.  
+A basic Apple homepage clone built to strengthen my understanding of layout structure using Flexbox.  
 Focused on clean UI arrangement, visual accuracy, and mastering essential front-end layout concepts. 
 Designed to build confidence in structuring real-world website sections.
 
-## 📌 Features
+ 📌 Features
 - Flexbox-based layout  
 - Clean and simple UI  
 - Apple-inspired section structure  
 - Focus on spacing, alignment, and visual hierarchy  
 
-## 🛠️ Tech Stack
-- **HTML5**
-- **CSS3 (Flexbox)**
+ 🛠️ Tech Stack
+- HTML5
+- CSS3 (Flexbox)
 
-## 🎯 Purpose of the Project
+🎯 Purpose of the Project
 - Improve layout building skills  
 - Practice Flexbox alignment and spacing  
 - Recreate a real-world style homepage  
 - Build confidence in front-end fundamentals  
 
-## 🚀 Future Improvements
+🚀 Future Improvements
 - Make the design responsive  
 - Add animations and transitions  
 - Improve typography and scaling  
