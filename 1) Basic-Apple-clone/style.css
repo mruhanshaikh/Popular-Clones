@@ -1,6 +1,6 @@
 @font-face {
     font-family:apple-medium;
-    src: url(SFPRODISPLAYMEDIUM.OTF);
+    src: url(asset/SFPRODISPLAYMEDIUM.OTF);
 }
 * {
   margin: 0;
@@ -41,16 +41,16 @@ html, body {
 }
 
 .hero-sec{
-    background-image: url(her-bg.jpg);
+    background-image: url(asset/her-bg.jpg);
     color:white;
 }
 .iPhone-Air{
-    background-image: url(iphone-bg.jpg);
+    background-image: url(asset/iphone-bg.jpg);
     color:black;
     margin-top: 10px;
 }
 .iPhone-17 {
-    background-image: url(iphone17.jpg);
+    background-image: url(asset/iphone17.jpg);
     color:black;
     margin-top: 10px;
 }
@@ -111,22 +111,22 @@ html, body {
     width:100%;
 }
 .watch{
-    background-image: url(watch.jpg);
+    background-image: url(asset/watch.jpg);
 }
 .airpods{
-    background-image: url(earpods.jpg);
+    background-image: url(asset/earpods.jpg);
 }
 .macbook{
-    background-image: url(macbook.jpg);
+    background-image: url(asset/macbook.jpg);
 }
 .ipad{
-    background-image: url(ipad.jpg);
+    background-image: url(asset/ipad.jpg);
 }
 .tradein{
-    background-image: url(tradein.jpg);
+    background-image: url(asset/tradein.jpg);
 }
 .card{
-    background-image: url(card.jpg);
+    background-image: url(asset/card.jpg);
 }
 .grid{
     background-position: center;
