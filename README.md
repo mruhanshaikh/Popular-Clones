@@ -1,27 +1,6 @@
-#  Apple Homepage Clone - https://applle-clonee.netlify.app/
+<<<<<<< HEAD
+#  Apple Homepage Clone 
+=======
+>>>>>>> 37ef306cfeee0602fd34d22586de4c2034a83f9f
 
-A basic Apple homepage clone built to strengthen my understanding of layout structure using **Flexbox**.  
-Focused on clean UI arrangement, visual accuracy, and mastering essential front-end layout concepts.  
-Designed to build confidence in structuring real-world website sections.
 
-## 📌 Features
-- Flexbox-based layout  
-- Clean and simple UI  
-- Apple-inspired section structure  
-- Focus on spacing, alignment, and visual hierarchy  
-
-## 🛠️ Tech Stack
-- **HTML5**
-- **CSS3 (Flexbox)**
-
-## 🎯 Purpose of the Project
-- Improve layout building skills  
-- Practice Flexbox alignment and spacing  
-- Recreate a real-world style homepage  
-- Build confidence in front-end fundamentals  
-
-## 🚀 Future Improvements
-- Make the design responsive  
-- Add animations and transitions  
-- Improve typography and scaling  
-- Add more pages or sections  
