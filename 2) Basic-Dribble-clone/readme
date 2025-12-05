@@ -1,0 +1,41 @@
+🎨 Dribbble Homepage Clone
+🔗 Live Demo: https://dribbble-clonee.netlify.app/
+
+A simple yet polished Dribbble homepage clone created to practice smooth animations, hover effects, and modern layout design using Flexbox.
+Focused on building an interactive UI, improving visual detailing, and enhancing understanding of CSS transitions.
+
+📌 Features
+
+Clean and modern UI inspired by Dribbble
+
+Smooth hover and transition animations
+
+Flexbox-based responsive layout structure
+
+Well-organized components and spacing
+
+🛠️ Tech Stack
+
+HTML5
+
+CSS3 (Flexbox, Transitions, Hover Effects)
+
+🎯 Purpose of the Project
+
+Strengthen CSS transition and animation skills
+
+Practice building visually appealing UI components
+
+Understand hover interactions and user experience design
+
+Improve layout structuring using Flexbox
+
+🚀 Future Improvements
+
+Add mobile responsiveness
+
+Enhance animation depth and micro-interactions
+
+Improve typography and color consistency
+
+Add dynamic sections or content filtering
