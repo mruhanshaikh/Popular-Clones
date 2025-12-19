@@ -1,11 +1,246 @@
-let obj={
-    user:"ruhan",
-    socials:{
-        instragram:"ruhan_",
-        facebok:"ruhan#",
-        youtube:"ruhan@"
-    },
-    addresss:"ahmedabad"
-};
-let {youtube}=obj.socials;
-console.log(youtube);
+const reelsData = [
+  {
+    video: "assets/videos/video1.mp4",
+    userPic: "assets/images/profile1.jpg",
+    username: "satoru gojo",
+    description: "Limitless energy. Infinity mindset 🔵✨",
+    songName: "Silhouette – KANA-BOON",
+    likes: 700,
+    comments: 1842,
+    reposts: 912,
+    shares: 14321,
+    isLiked: false,
+    isFollowed: false
+  },
+  {
+    video: "assets/videos/video2.mp4",
+    userPic: "assets/images/profile2.jpg",
+    username: "Tanjiro Kamado",
+    description: "Breathing techniques & never giving up 🔥🌊",
+    songName: "Gurenge – LiSA",
+    likes: 184210,
+    comments: 6412,
+    reposts: 2230,
+    shares: 932,
+    isLiked: true,
+    isFollowed: true
+  },
+  {
+    video: "assets/videos/video3.mp4",
+    userPic: "assets/images/profile3.jpg",
+    username: "Sung Jin-woo",
+    description: "From weakest to shadow monarch 👑🖤",
+    songName: "Dark Aria – Solo Leveling OST",
+    likes: 328900,
+    comments: 10903,
+    reposts: 740,
+    shares: 15890,
+    isLiked: false,
+    isFollowed: true
+  },
+  {
+    video: "assets/videos/video4.mp4",
+    userPic: "assets/images/profile4.jpg",
+    username: "naruto uzumaki",
+    description: "Believe it! Hustle never stops 🍥🔥",
+    songName: " Blue Bird – Naruto OST",
+    likes: 456100,
+    comments: 12198,
+    reposts: 8145,
+    shares: 200,
+    isLiked: false,
+    isFollowed: false
+  },
+  {
+    video: "assets/videos/video5.mp4",
+    userPic: "assets/images/profile5.jpg",
+    username: "Toge Inumaki",
+    description: "Salmon. Tuna mayo. Speak less 🤐🍙",
+    songName: "Cursed Speech – JJK OST",
+    likes: 199450,
+    comments: 312,
+    reposts: 2376,
+    shares: 10450,
+    isLiked: true,
+    isFollowed: false
+  },
+  {
+    video: "assets/videos/video6.mp4",
+    userPic: "assets/images/profile6.jpg",
+    username: "Makima",
+    description: "Control everything. Smile softly 😈🌹",
+    songName: "Chainsaw Blood – CSM OST",
+    likes: 321340,
+    comments: 9084,
+    reposts: 6039,
+    shares: 220,
+    isLiked: false,
+    isFollowed: false
+  },
+  {
+    video: "assets/videos/video7.mp4",
+    userPic: "assets/images/profile7.jpg",
+    username: "Seishirō Nagi",
+    description: "Effortless genius. Zero motivation ⚽😴",
+    songName: "Blue Lock Theme – OST",
+    likes: 140,
+    comments: 4173,
+    reposts: 3102,
+    shares: 12501,
+    isLiked: false,
+    isFollowed: true
+  },
+  {
+    video: "assets/videos/video8.mp4",
+    userPic: "assets/images/profile8.jpg",
+    username: "Kiyotaka Ayanokōji",
+    description: "Silent manipulation. Perfect control 🧠♟️",
+    songName: "Classroom of the Elite – OST",
+    likes: 273110,
+    comments: 86,
+    reposts: 5188,
+    shares: 14290,
+    isLiked: true,
+    isFollowed: true
+  },
+  {
+    video: "assets/videos/video9.mp4",
+    userPic: "assets/images/profile9.jpg",
+    username: "one piece",
+    description: "Set sail. Chase freedom ☠️⛵",
+    songName: "We Are! – One Piece OP",
+    likes: 518600,
+    comments: 20702,
+    reposts: 139,
+    shares: 36304,
+    isLiked: false,
+    isFollowed: false
+  },
+  {
+    video: "assets/videos/video10.mp4",
+    userPic: "assets/images/profile10.jpg",
+    username: "Gon Freecss",
+    description: "Pure heart. Infinite potential 🌱⚡",
+    songName: "Departure! – Hunter x Hunter",
+    likes: 820,
+    comments: 4109,
+    reposts: 2067,
+    shares: 8980,
+    isLiked: false,
+    isFollowed: true
+  }
+];
+
+  let reelsContainer = document.getElementById('reels-container');
+  let reel='';
+  reelsData.forEach(e=>{
+    reel+=`
+    <section class="reel">
+
+        <!-- Background video -->
+        <video
+            src="${e.video}"
+            autoplay
+            muted
+            loop
+            playsinline
+        ></video>
+
+        <!-- Gradient overlay -->
+        <div class="overlay"></div>
+
+        <!-- UI CONTENT -->
+        <div class="ui">
+
+            <!-- TOP -->
+            <div class="top">
+                <i class="ri-add-large-fill"></i>
+
+                <div class="reels">
+                    <span>Reels</span>
+                    <i class="ri-arrow-down-s-line"></i>
+                </div>
+
+                <div class="friends">
+                    <span>Friends</span>
+                    <div class="img-container">
+                        <img src="assets/images/friend-1.avif">
+                        <img src="assets/images/friend-2.avif">
+                        <img src="assets/images/friend-3.avif">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="right">
+                <div class="icon-text">
+                    <i class="ri-heart-3-line"></i>
+                    <span>${(e.likes>1000)?Math.floor(e.likes/1000)+ "k":e.likes}</span>
+                </div>
+                <div class="icon-text">
+                    <i class="ri-chat-1-line"></i>
+                    <span>${(e.comments>1000)?Math.floor(e.comments/1000)+ "k":e.comments}</span>
+                </div>
+                <div class="icon-text">
+                    <i class="ri-arrow-left-right-line"></i>
+                    <span>${(e.reposts>1000)?Math.floor(e.reposts/1000)+ "k":e.reposts}</span>
+                </div>
+                <div class="icon-text">
+                    <i class="ri-share-line"></i>
+                    <span>${(e.shares>1000)?Math.floor(e.shares/1000)+ "k":e.shares}</span>
+                </div>
+                <div class="icon-text">
+                    <i class="ri-more-2-line"></i>
+                </div>
+            </div>
+
+            <!-- BOTTOM -->
+            <div class="bottom">
+                <div class="bottom-top">
+                    <img src="${e.userPic}">
+
+                    <div class="title-song">
+                        <div class="title-box">
+                            <span>${e.username}</span>
+                            <i class="ri-verified-badge-fill"></i>
+                        </div>
+                        <div class="song-box">
+                            <i class="ri-arrow-right-up-long-fill"></i>
+                            <span>${e.songName}</span>
+                        </div>
+                    </div>
+
+                    <button>Follow</button>
+                </div>
+
+                <div class="bottom-down">
+                    <p>${e.description}</p>
+                    <i class="ri-music-2-fill"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>`
+  })
+   reelsContainer.innerHTML=reel;
+   let observer=new IntersectionObserver(e=>{
+    e.forEach(e=>{
+        let target=e.target;
+        let video=target.querySelector('video');
+        if(e.isIntersecting){
+            video.play();
+        }else{
+            video.pause();
+        }    
+    })
+   },{threshold:0.6});
+   document.querySelectorAll('.reel').forEach(e=>observer.observe(e));
+
+   // for asking browser permission and then  destroying
+   let soundUnlocked = false;
+   document.addEventListener('pointerdown', () => {
+   soundUnlocked = true;
+   document.querySelectorAll('video').forEach(video => {
+    video.muted = false;
+   });
+   }, { once: true });

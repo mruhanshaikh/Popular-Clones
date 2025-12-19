@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -9,30 +10,60 @@ html, body {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(14px, 1vw, 18px);
-  overflow: hidden;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* MAIN */
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow-y: auto;
+  min-height: 100vh;
+  height: 100vh;
+  flex-direction: column;
+  cursor: pointer;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  /* ❌ REMOVED background image (video handles this now) */
+}
+
+/* REEL */
+.reel {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+  /* VIDEO BACKGROUND */
+  /* OVERLAY (replaces bg-gradient on reel) */
+  /* UI LAYER (same layout, just wrapped) */
+  /* TOP */
+  /* RIGHT */
+  /* BOTTOM */
+}
+.reel video {
   width: 100%;
   height: 100%;
-  background-image: url(https://images.unsplash.com/photo-1765574467155-682f63fe9c6a?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-main .reel {
+.reel .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.466), transparent);
+  pointer-events: none;
+}
+.reel .ui {
+  position: absolute;
+  inset: 0;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.466), transparent);
-  width: 100%;
-  height: 100%;
+  justify-content: space-between;
 }
-main .reel .top {
+.reel .top {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.466), transparent);
   width: 100%;
   height: 10%;
@@ -43,58 +74,55 @@ main .reel .top {
   font-weight: 700;
   font-size: 1.5rem;
 }
-main .reel .top .reels {
+.reel .top .reels {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-main .reel .top .friends {
+.reel .top .friends {
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(233, 225, 225);
 }
-main .reel .top .friends .img-container {
+.reel .top .friends .img-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 10px;
 }
-main .reel .top .friends .img-container img {
+.reel .top .friends .img-container img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
 }
-main .reel .right {
-  width: auto;
-  height: 100%;
-  align-self: flex-end;
+.reel .right {
+  position: absolute;
+  right: 1rem;
+  bottom: 7%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  padding: 0 1rem;
   gap: 1rem;
 }
-main .reel .right .icon-text {
+.reel .right .icon-text {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-main .reel .right .icon-text i {
+.reel .right .icon-text i {
   font-size: 2.5rem;
   filter: invert(1) brightness(1);
 }
-main .reel .right .icon-text span {
+.reel .right .icon-text span {
   font-size: 1rem;
   color: rgb(233, 225, 225);
 }
-main .reel .bottom {
+.reel .bottom {
   width: 100%;
   height: auto;
   display: flex;
@@ -103,7 +131,7 @@ main .reel .bottom {
   flex-direction: column;
   color: white;
 }
-main .reel .bottom .bottom-top {
+.reel .bottom .bottom-top {
   padding: 0.5rem 1rem;
   display: flex;
   justify-content: flex-start;
@@ -112,35 +140,35 @@ main .reel .bottom .bottom-top {
   width: 80%;
   height: auto;
 }
-main .reel .bottom .bottom-top img {
+.reel .bottom .bottom-top img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
 }
-main .reel .bottom .bottom-top .title-song {
+.reel .bottom .bottom-top .title-song {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
 }
-main .reel .bottom .bottom-top .title-song .title-box {
+.reel .bottom .bottom-top .title-song .title-box {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
   font-size: 1.2rem;
+  text-transform: capitalize;
+  white-space: nowrap;
 }
-main .reel .bottom .bottom-top .title-song .song-box {
+.reel .bottom .bottom-top .title-song .song-box {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 0.2rem;
 }
-main .reel .bottom .bottom-top button {
+.reel .bottom .bottom-top button {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   border: 1px solid white;
@@ -148,30 +176,29 @@ main .reel .bottom .bottom-top button {
   font-weight: 600;
   color: white;
 }
-main .reel .bottom .bottom-down {
+.reel .bottom .bottom-down {
   width: 100%;
   height: auto;
-  padding-bottom: 0.5rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-main .reel .bottom .bottom-down p {
+.reel .bottom .bottom-down p {
   width: 250px;
   height: auto;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-main .reel .bottom .bottom-down i {
+.reel .bottom .bottom-down i {
   font-size: 2rem;
 }
 
+/* MOBILE */
 @media (max-width: 370px) {
   body {
-    background-image: url(https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-image: url(assets/images/404.avif);
     background-position: center;
     background-size: cover;
   }
