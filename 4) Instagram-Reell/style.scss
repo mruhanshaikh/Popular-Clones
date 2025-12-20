@@ -29,32 +29,27 @@ html, body {
     background: linear-gradient($direction, rgba(0, 0, 0, 0.466), transparent);
 }
 
-/* MAIN */
+
 main {
     overflow-y: auto;
-    // @include fleX();
     min-height: 100vh;
     height:100vh;
     flex-direction: column;
-    cursor: pointer;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    /* ❌ REMOVED background image (video handles this now) */
 }
 
-/* REEL */
 .reel {
     @include size(100%, 100vh);
-    position: relative;            // ✅ needed for layering
+    position: relative;           
     overflow: hidden;
     scroll-snap-align: start;
-    /* VIDEO BACKGROUND */
+
     video {
         @include size(100%, 100%);
         object-fit: cover;
     }
 
-    /* OVERLAY (replaces bg-gradient on reel) */
     .overlay {
         position: absolute;
         inset: 0;
@@ -62,7 +57,6 @@ main {
         pointer-events: none;
     }
 
-    /* UI LAYER (same layout, just wrapped) */
     .ui {
         position: absolute;
         inset: 0;
@@ -71,7 +65,6 @@ main {
         justify-content: space-between;
     }
 
-    /* TOP */
     .top {
         @include bg-gradient(to bottom);
         @include size(100%, 10%);
@@ -101,9 +94,8 @@ main {
         }
     }
 
-    /* RIGHT */
     .right {
-        position: absolute;      // ✅ required for side overlay
+        position: absolute;    
         right: 1rem;
         bottom: 7%;
         @include fleX(flex-end, center);
@@ -113,20 +105,21 @@ main {
         .icon-text {
             @include fleX();
             flex-direction: column;
-
+            cursor: pointer;
             i {
                 font-size: 2.5rem;
                 filter: invert(1) brightness(1);
+                pointer-events: none;
             }
 
             span {
                 font-size: 1rem;
                 color: rgb(233, 225, 225);
+                pointer-events: none;
             }
         }
     }
 
-    /* BOTTOM */
     .bottom {
         @include size(100%, auto);
         @include fleX(flex-start, flex-start);
@@ -191,8 +184,9 @@ main {
         }
     }
 }
-
-/* MOBILE */
+.ri-heart-3-fill{
+    color:cyan;
+}
 @media (max-width:370px){
     body{
         background-image: url(assets/images/404.avif);

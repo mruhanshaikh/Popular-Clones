@@ -1,3 +1,4 @@
+//Data
 const reelsData = [
   {
     video: "assets/videos/video1.mp4",
@@ -10,7 +11,7 @@ const reelsData = [
     reposts: 912,
     shares: 14321,
     isLiked: false,
-    isFollowed: false
+    isFollowed: false,
   },
   {
     video: "assets/videos/video2.mp4",
@@ -23,7 +24,7 @@ const reelsData = [
     reposts: 2230,
     shares: 932,
     isLiked: true,
-    isFollowed: true
+    isFollowed: true,
   },
   {
     video: "assets/videos/video3.mp4",
@@ -36,7 +37,7 @@ const reelsData = [
     reposts: 740,
     shares: 15890,
     isLiked: false,
-    isFollowed: true
+    isFollowed: true,
   },
   {
     video: "assets/videos/video4.mp4",
@@ -49,7 +50,7 @@ const reelsData = [
     reposts: 8145,
     shares: 200,
     isLiked: false,
-    isFollowed: false
+    isFollowed: false,
   },
   {
     video: "assets/videos/video5.mp4",
@@ -62,7 +63,7 @@ const reelsData = [
     reposts: 2376,
     shares: 10450,
     isLiked: true,
-    isFollowed: false
+    isFollowed: false,
   },
   {
     video: "assets/videos/video6.mp4",
@@ -75,7 +76,7 @@ const reelsData = [
     reposts: 6039,
     shares: 220,
     isLiked: false,
-    isFollowed: false
+    isFollowed: false,
   },
   {
     video: "assets/videos/video7.mp4",
@@ -88,7 +89,7 @@ const reelsData = [
     reposts: 3102,
     shares: 12501,
     isLiked: false,
-    isFollowed: true
+    isFollowed: true,
   },
   {
     video: "assets/videos/video8.mp4",
@@ -101,7 +102,7 @@ const reelsData = [
     reposts: 5188,
     shares: 14290,
     isLiked: true,
-    isFollowed: true
+    isFollowed: true,
   },
   {
     video: "assets/videos/video9.mp4",
@@ -114,7 +115,7 @@ const reelsData = [
     reposts: 139,
     shares: 36304,
     isLiked: false,
-    isFollowed: false
+    isFollowed: false,
   },
   {
     video: "assets/videos/video10.mp4",
@@ -127,14 +128,16 @@ const reelsData = [
     reposts: 2067,
     shares: 8980,
     isLiked: false,
-    isFollowed: true
-  }
+    isFollowed: true,
+  },
 ];
-
-  let reelsContainer = document.getElementById('reels-container');
-  let reel='';
-  reelsData.forEach(e=>{
-    reel+=`
+//reelscontainer
+let reelsContainer = document.getElementById("reels-container");
+//function which convert data into proper structure with dynamic values
+function displayReel(){
+  let reel = "";
+reelsData.forEach((e,indx) => {
+  reel += `
     <section class="reel">
 
         <!-- Background video -->
@@ -173,21 +176,37 @@ const reelsData = [
 
             <!-- RIGHT -->
             <div class="right">
-                <div class="icon-text">
-                    <i class="ri-heart-3-line"></i>
-                    <span>${(e.likes>1000)?Math.floor(e.likes/1000)+ "k":e.likes}</span>
+                <div class="icon-text like-btn" id="${indx}">
+                    <i class="${e.isLiked?'ri-heart-3-fill':'ri-heart-3-line'}"></i>
+                    <span class="like-count">${
+                      e.likes > 1000
+                        ? Math.floor(e.likes / 1000) + "k"
+                        : e.likes
+                    }</span>
                 </div>
                 <div class="icon-text">
                     <i class="ri-chat-1-line"></i>
-                    <span>${(e.comments>1000)?Math.floor(e.comments/1000)+ "k":e.comments}</span>
+                    <span>${
+                      e.comments > 1000
+                        ? Math.floor(e.comments / 1000) + "k"
+                        : e.comments
+                    }</span>
                 </div>
                 <div class="icon-text">
                     <i class="ri-arrow-left-right-line"></i>
-                    <span>${(e.reposts>1000)?Math.floor(e.reposts/1000)+ "k":e.reposts}</span>
+                    <span>${
+                      e.reposts > 1000
+                        ? Math.floor(e.reposts / 1000) + "k"
+                        : e.reposts
+                    }</span>
                 </div>
                 <div class="icon-text">
                     <i class="ri-share-line"></i>
-                    <span>${(e.shares>1000)?Math.floor(e.shares/1000)+ "k":e.shares}</span>
+                    <span>${
+                      e.shares > 1000
+                        ? Math.floor(e.shares / 1000) + "k"
+                        : e.shares
+                    }</span>
                 </div>
                 <div class="icon-text">
                     <i class="ri-more-2-line"></i>
@@ -215,15 +234,22 @@ const reelsData = [
 
                 <div class="bottom-down">
                     <p>${e.description}</p>
-                    <i class="ri-music-2-fill"></i>
+                    <i class="ri-volume-mute-fill sound-icon"></i>
                 </div>
             </div>
 
         </div>
-    </section>`
-  })
-   reelsContainer.innerHTML=reel;
-   let observer=new IntersectionObserver(e=>{
+    </section>`;
+});
+reelsContainer.innerHTML = reel;
+}
+//function call to present all data into device viewport
+displayReel();
+//each independent reel which will come after data displayed not before it
+let reeel = document.querySelectorAll(".reel");
+//intersection-observer - used for determining which reel to play based on viewport
+function intersectionObserver(){
+  let observer=new IntersectionObserver(e=>{
     e.forEach(e=>{
         let target=e.target;
         let video=target.querySelector('video');
@@ -235,12 +261,38 @@ const reelsData = [
     })
    },{threshold:0.6});
    document.querySelectorAll('.reel').forEach(e=>observer.observe(e));
-
-   // for asking browser permission and then  destroying
-   let soundUnlocked = false;
-   document.addEventListener('pointerdown', () => {
-   soundUnlocked = true;
+}
+intersectionObserver();
+//To Bypass browser policy to play audio u can only use pointerup or click here
+function bypass() {
+   document.addEventListener('pointerup', () => {
    document.querySelectorAll('video').forEach(video => {
-    video.muted = false;
+    let state= video.muted;
+    video.muted = !state; 
    });
-   }, { once: true });
+   document.querySelectorAll('.sound-icon').forEach(e=>{
+    e.classList.toggle('ri-volume-up-line')
+   })
+   });
+}
+bypass();
+// updating count of like by using event delegation instead of rerendering
+function like() {
+  document.addEventListener('click', e => {
+    if (!e.target.classList.contains('like-btn')) return;
+    const id = e.target.id;
+    const like=reelsData[id].isLiked;
+    let likestate=like;
+    reelsData[id].isLiked=!likestate;
+    
+    let count=reelsData[id].likes++;
+    e.target
+      .closest('.icon-text')
+      .querySelector('.like-count')
+      .textContent = count>1000?Math.floor(count/1000)+'k':count;
+    
+  });
+}
+like(displayReel);
+
+
