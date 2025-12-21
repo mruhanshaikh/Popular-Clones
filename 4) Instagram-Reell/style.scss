@@ -31,7 +31,7 @@ html, body {
 
 
 main {
-    overflow-y: auto;
+    overflow-y:scroll;
     min-height: 100svh;
     height:100svh;
     flex-direction: column;
@@ -63,6 +63,7 @@ main {
         @include fleX(flex-start, flex-start);
         flex-direction: column;
         justify-content: space-between;
+        padding-bottom: env(safe-area-inset-bottom);
     }
 
     .top {
