@@ -122,7 +122,7 @@ main {
   align-items: flex-start;
   flex-direction: column;
   color: white;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
 }
 .reel .bottom .bottom-top {
   padding: 0.5rem 1rem;
