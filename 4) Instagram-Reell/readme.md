@@ -1,4 +1,4 @@
-Reels-Style Video Feed (Vanilla JS)
+Reels-Style Video Feed (Vanilla JS) 
 
 A reels-style vertical video feed built using HTML, SCSS, and Vanilla JavaScript, focusing on real-world media handling and UI state management.
 

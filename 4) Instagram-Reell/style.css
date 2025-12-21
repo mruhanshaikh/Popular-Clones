@@ -197,15 +197,4 @@ main {
 .red {
   color: cyan;
   -webkit-text-stroke: 0px transparent;
-}
-
-@media (max-width: 370px) {
-  body {
-    background-image: url(assets/images/404.avif);
-    background-position: center;
-    background-size: cover;
-  }
-  main {
-    display: none;
-  }
 }/*# sourceMappingURL=style.css.map */
