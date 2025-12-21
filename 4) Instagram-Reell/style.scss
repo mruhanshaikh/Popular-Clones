@@ -163,6 +163,8 @@ main {
                 background-color: transparent;
                 font-weight: 600;
                 color: white;
+                text-transform:capitalize;
+                cursor:pointer;
             }
         }
 
@@ -185,7 +187,12 @@ main {
     }
 }
 .ri-heart-3-fill{
+-webkit-text-stroke: 3px black;
+ color:transparent;
+}
+.red{
     color:cyan;
+    -webkit-text-stroke:0px transparent;
 }
 @media (max-width:370px){
     body{

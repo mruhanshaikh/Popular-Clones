@@ -19,12 +19,12 @@ const reelsData = [
     username: "Tanjiro Kamado",
     description: "Breathing techniques & never giving up 🔥🌊",
     songName: "Gurenge – LiSA",
-    likes: 184210,
+    likes: 210,
     comments: 6412,
     reposts: 2230,
     shares: 932,
-    isLiked: true,
-    isFollowed: true,
+    isLiked: false,
+    isFollowed:false,
   },
   {
     video: "assets/videos/video3.mp4",
@@ -32,12 +32,12 @@ const reelsData = [
     username: "Sung Jin-woo",
     description: "From weakest to shadow monarch 👑🖤",
     songName: "Dark Aria – Solo Leveling OST",
-    likes: 328900,
+    likes: 900,
     comments: 10903,
     reposts: 740,
     shares: 15890,
     isLiked: false,
-    isFollowed: true,
+    isFollowed:false,
   },
   {
     video: "assets/videos/video4.mp4",
@@ -45,7 +45,7 @@ const reelsData = [
     username: "naruto uzumaki",
     description: "Believe it! Hustle never stops 🍥🔥",
     songName: " Blue Bird – Naruto OST",
-    likes: 456100,
+    likes: 999,
     comments: 12198,
     reposts: 8145,
     shares: 200,
@@ -58,11 +58,11 @@ const reelsData = [
     username: "Toge Inumaki",
     description: "Salmon. Tuna mayo. Speak less 🤐🍙",
     songName: "Cursed Speech – JJK OST",
-    likes: 199450,
+    likes: 450,
     comments: 312,
     reposts: 2376,
     shares: 10450,
-    isLiked: true,
+    isLiked: false,
     isFollowed: false,
   },
   {
@@ -71,7 +71,7 @@ const reelsData = [
     username: "Makima",
     description: "Control everything. Smile softly 😈🌹",
     songName: "Chainsaw Blood – CSM OST",
-    likes: 321340,
+    likes: 990,
     comments: 9084,
     reposts: 6039,
     shares: 220,
@@ -89,7 +89,7 @@ const reelsData = [
     reposts: 3102,
     shares: 12501,
     isLiked: false,
-    isFollowed: true,
+    isFollowed:false,
   },
   {
     video: "assets/videos/video8.mp4",
@@ -97,12 +97,12 @@ const reelsData = [
     username: "Kiyotaka Ayanokōji",
     description: "Silent manipulation. Perfect control 🧠♟️",
     songName: "Classroom of the Elite – OST",
-    likes: 273110,
+    likes: 273,
     comments: 86,
     reposts: 5188,
     shares: 14290,
-    isLiked: true,
-    isFollowed: true,
+   isLiked: false,
+    isFollowed:false,
   },
   {
     video: "assets/videos/video9.mp4",
@@ -110,7 +110,7 @@ const reelsData = [
     username: "one piece",
     description: "Set sail. Chase freedom ☠️⛵",
     songName: "We Are! – One Piece OP",
-    likes: 518600,
+    likes: 600,
     comments: 20702,
     reposts: 139,
     shares: 36304,
@@ -128,7 +128,7 @@ const reelsData = [
     reposts: 2067,
     shares: 8980,
     isLiked: false,
-    isFollowed: true,
+    isFollowed:false,
   },
 ];
 //reelscontainer
@@ -177,7 +177,7 @@ reelsData.forEach((e,indx) => {
             <!-- RIGHT -->
             <div class="right">
                 <div class="icon-text like-btn" id="${indx}">
-                    <i class="${e.isLiked?'ri-heart-3-fill':'ri-heart-3-line'}"></i>
+                    <i class="ri-heart-3-fill"></i>
                     <span class="like-count">${
                       e.likes > 1000
                         ? Math.floor(e.likes / 1000) + "k"
@@ -229,7 +229,7 @@ reelsData.forEach((e,indx) => {
                         </div>
                     </div>
 
-                    <button>Follow</button>
+                    <button id="${indx}" class="follow-toggel">Follow</button>
                 </div>
 
                 <div class="bottom-down">
@@ -264,35 +264,79 @@ function intersectionObserver(){
 }
 intersectionObserver();
 //To Bypass browser policy to play audio u can only use pointerup or click here
-function bypass() {
-   document.addEventListener('pointerup', () => {
-   document.querySelectorAll('video').forEach(video => {
-    let state= video.muted;
-    video.muted = !state; 
-   });
-   document.querySelectorAll('.sound-icon').forEach(e=>{
-    e.classList.toggle('ri-volume-up-line')
-   })
-   });
+let soundIcon=document.querySelectorAll('.sound-icon');
+let video=document.querySelectorAll('video');
+// function bypass() {
+//    document.addEventListener('pointerup', () => {
+//    video.forEach(video => {
+//     video.muted = false;
+//    })
+//    soundIcon.forEach(e=>{
+//       e.classList.add('ri-volume-up-line');
+//    });
+//    },{once:true});
+// }
+// bypass();
+let isMuted = true;
+
+function soundStop() {
+  soundIcon.forEach(icon => {
+    icon.addEventListener('click', () => {
+
+      // flip global state
+      isMuted = !isMuted;
+
+      // apply to ALL videos
+      video.forEach(v => {
+        v.muted = isMuted;
+      });
+
+      // apply to ALL icons
+      soundIcon.forEach(ic => {
+        ic.classList.toggle('ri-volume-up-fill');
+        // ic.classList.toggle('ri-volume-mute-fill', isMuted);
+      });
+
+    });
+  });
 }
-bypass();
+
+soundStop();
 // updating count of like by using event delegation instead of rerendering
 function like() {
   document.addEventListener('click', e => {
     if (!e.target.classList.contains('like-btn')) return;
     const id = e.target.id;
-    const like=reelsData[id].isLiked;
-    let likestate=like;
-    reelsData[id].isLiked=!likestate;
-    
-    let count=reelsData[id].likes++;
+    //fliping state
+    reelsData[id].isLiked=!reelsData[id].isLiked;
+    let likecount=(reelsData[id].isLiked)?reelsData[id].likes+1:reelsData[id].likes;
     e.target
       .closest('.icon-text')
       .querySelector('.like-count')
-      .textContent = count>1000?Math.floor(count/1000)+'k':count;
+      .textContent = likecount>1000?Math.floor(likecount/1000)+'k':likecount;
     
+    e.target.querySelector('i')
+      .classList.toggle('red')
   });
 }
-like(displayReel);
+like();
+// follow button toggeling
+function follow(){
+let follow=document.querySelectorAll('.follow-toggel');
+follow.forEach(e=>{
+  e.addEventListener('click',(e)=>{
+      let target=e.target;
+      let id=e.target.id;
+      let x=reelsData[id].isFollowed=!reelsData[id].isFollowed;
+      if(x === true){
+        target.innerHTML='following';
+      }else{
+        target.innerHTML='follow';
+      }
+  })
+})
+}
+follow();
+
 
 
