@@ -17,8 +17,7 @@ html, body {
 
 main {
   overflow-y: auto;
-  min-height: 100vh;
-  height: 100vh;
+  min-height: 100svh;
   flex-direction: column;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -131,6 +130,7 @@ main {
   gap: 1rem;
   width: 80%;
   height: auto;
+  padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
 }
 .reel .bottom .bottom-top img {
   width: 50px;
