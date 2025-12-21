@@ -33,13 +33,14 @@ html, body {
 main {
     overflow-y: auto;
     min-height: 100svh;
+    height:100vh;
     flex-direction: column;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 }
 
 .reel {
-    @include size(100%, 100vh);
+    @include size(100%, 100svh);
     position: relative;           
     overflow: hidden;
     scroll-snap-align: start;
