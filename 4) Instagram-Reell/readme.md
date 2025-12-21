@@ -33,5 +33,3 @@ HTML • SCSS • Vanilla JavaScript
 - Add animations and gestures  
 
 ---
-
-**Author:** Mohammed Ruhan Shaikh
