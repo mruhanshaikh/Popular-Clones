@@ -33,7 +33,7 @@ html, body {
 main {
     overflow-y: auto;
     min-height: 100svh;
-    height:100vh;
+    height:100svh;
     flex-direction: column;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -131,7 +131,6 @@ main {
             @include fleX(flex-start);
             gap: 1rem;
             @include size(80%, auto);
-            padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
             img {
                 @include size(50px, 50px);
                 border-radius: 50%;
