@@ -1,39 +1,40 @@
+<<<<<<< HEAD
 Reels-Style Video Feed (Vanilla JS) 
+=======
+# Reels-Style Video Feed (Vanilla JS)
+#Live : https://reeel.netlify.app/
+>>>>>>> 66c0201299d3f590f59868b94fdb3fce91d4e9f8
 
-A reels-style vertical video feed built using HTML, SCSS, and Vanilla JavaScript, focusing on real-world media handling and UI state management.
+A reels-style vertical video feed built using **HTML, SCSS, and Vanilla JavaScript**, focusing on real-world media handling and UI state management.
 
-Features
+---
 
-Vertical snap-scrolling layout
+## Features
+- Vertical snap-scrolling layout
+- Auto play / pause using Intersection Observer
+- Global sound control with browser permission handling
+- Like & follow interactions with instant UI updates
+- Optimized DOM updates (no full re-render)
 
-Auto play / pause using Intersection Observer
+---
 
-Global sound control with browser permission handling
+## Key Learnings
+- Intersection Observer for viewport-based logic  
+- Browser autoplay & audio permission policies  
+- Event delegation and bubbling control  
+- State-driven UI updates without frameworks  
+- Efficient DOM manipulation over re-rendering  
 
-Like & follow interactions with instant UI updates
+---
 
-Optimized DOM updates (no full re-render)
-
-Key Learnings
-
-Intersection Observer for viewport-based logic
-
-Browser autoplay & audio permission policies
-
-Event delegation and bubbling control
-
-State-driven UI updates without frameworks
-
-Efficient DOM manipulation over re-rendering
-
-Tech Stack
-
+## Tech Stack
 HTML • SCSS • Vanilla JavaScript
 
-Future Improvements
+---
 
-Persist state with localStorage
+## Future Improvements
+- Persist state with localStorage  
+- Lazy-load videos  
+- Add animations and gestures  
 
-Lazy-load videos
-
-Add animations and gestures
+---
